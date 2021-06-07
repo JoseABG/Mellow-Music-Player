@@ -17,5 +17,19 @@ namespace Mellow_Music_Player
             InitializeComponent();
         }
 
+        private void songButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Manager_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
