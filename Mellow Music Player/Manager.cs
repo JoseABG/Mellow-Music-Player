@@ -12,7 +12,7 @@ namespace Mellow_Music_Player
 {
     public partial class Manager : Form
     {
-        private Point lastPoint;
+        private Point mouseLocation;
 
         public Manager()
         {
@@ -44,8 +44,8 @@ namespace Mellow_Music_Player
 
             if (e.Button == MouseButtons.Left)
             {
-                this.Left += e.X - lastPoint.X;
-                this.Top += e.Y - lastPoint.Y;
+                this.Left += e.X - mouseLocation.X;
+                this.Top += e.Y - mouseLocation.Y;
             }
 
         }
@@ -53,7 +53,15 @@ namespace Mellow_Music_Player
         private void gradientPanel2_MouseDown(object sender, MouseEventArgs e)
         {
 
-            lastPoint = new Point(e.X, e.Y);
+           mouseLocation = new Point(e.X, e.Y);
+
+        }
+
+        private void lyricsButton_Click(object sender, EventArgs e)
+        {
+
+            LyricWindow lyrics = new LyricWindow();
+            lyrics.Show();
 
         }
     }
