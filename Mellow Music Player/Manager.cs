@@ -61,7 +61,18 @@ namespace Mellow_Music_Player
         {
 
             LyricWindow lyrics = new LyricWindow();
+            lyrics.StartPosition = FormStartPosition.Manual;
+            lyrics.Left = this.Right;
+            lyrics.Top = this.Top;
             lyrics.Show();
+            
+        }
+
+        private void downloadSongInfoButton_Click(object sender, EventArgs e)
+        {
+
+            SongInfoSearch songInfo = new SongInfoSearch();
+            songInfo.ShowDialog();
 
         }
     }

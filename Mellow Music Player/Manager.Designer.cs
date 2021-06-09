@@ -235,6 +235,7 @@ namespace Mellow_Music_Player
             this.downloadSongInfoButton.TabIndex = 19;
             this.downloadSongInfoButton.Text = "Download Song Info";
             this.downloadSongInfoButton.UseVisualStyleBackColor = false;
+            this.downloadSongInfoButton.Click += new System.EventHandler(this.downloadSongInfoButton_Click);
             // 
             // toolbarPanel
             // 
@@ -264,9 +265,11 @@ namespace Mellow_Music_Player
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.HorizontalScrollbar = true;
             this.listBox1.ItemHeight = 15;
             this.listBox1.Location = new System.Drawing.Point(0, 193);
             this.listBox1.Name = "listBox1";
+            this.listBox1.ScrollAlwaysVisible = true;
             this.listBox1.Size = new System.Drawing.Size(517, 469);
             this.listBox1.TabIndex = 21;
             // 
