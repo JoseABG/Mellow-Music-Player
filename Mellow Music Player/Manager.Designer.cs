@@ -160,6 +160,7 @@ namespace Mellow_Music_Player
             this.albumLabel.Size = new System.Drawing.Size(46, 15);
             this.albumLabel.TabIndex = 26;
             this.albumLabel.Text = "Sample";
+            this.albumLabel.BackColor = System.Drawing.Color.Transparent;
             // 
             // yearLabel
             // 
@@ -169,6 +170,7 @@ namespace Mellow_Music_Player
             this.yearLabel.Size = new System.Drawing.Size(46, 15);
             this.yearLabel.TabIndex = 25;
             this.yearLabel.Text = "Sample";
+            this.yearLabel.BackColor = System.Drawing.Color.Transparent;
             // 
             // genreLabel
             // 
@@ -178,6 +180,7 @@ namespace Mellow_Music_Player
             this.genreLabel.Size = new System.Drawing.Size(46, 15);
             this.genreLabel.TabIndex = 24;
             this.genreLabel.Text = "Sample";
+            this.genreLabel.BackColor = System.Drawing.Color.Transparent;
             // 
             // artistLabel
             // 
@@ -187,6 +190,7 @@ namespace Mellow_Music_Player
             this.artistLabel.Size = new System.Drawing.Size(46, 15);
             this.artistLabel.TabIndex = 23;
             this.artistLabel.Text = "Sample";
+            this.artistLabel.BackColor = System.Drawing.Color.Transparent;
             // 
             // titleLabel
             // 
@@ -196,6 +200,7 @@ namespace Mellow_Music_Player
             this.titleLabel.Size = new System.Drawing.Size(46, 15);
             this.titleLabel.TabIndex = 21;
             this.titleLabel.Text = "Sample";
+            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             // 
             // playButton2
             // 
@@ -214,6 +219,7 @@ namespace Mellow_Music_Player
             this.pictureBox1.Size = new System.Drawing.Size(200, 200);
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             // 
             // lyricsButton
             // 
