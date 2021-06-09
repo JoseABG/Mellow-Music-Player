@@ -32,7 +32,6 @@ namespace Mellow_Music_Player
             this.lyricToolbarPanel = new Mellow_Music_Player.GradientPanel();
             this.closeButton = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.label1 = new System.Windows.Forms.Label();
             this.lyricToolbarPanel.SuspendLayout();
             this.SuspendLayout();
@@ -66,17 +65,10 @@ namespace Mellow_Music_Player
             // 
             this.richTextBox1.Location = new System.Drawing.Point(0, 148);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(508, 511);
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(529, 511);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
-            // 
-            // vScrollBar1
-            // 
-            this.vScrollBar1.Location = new System.Drawing.Point(511, 148);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(17, 511);
-            this.vScrollBar1.TabIndex = 4;
-            this.vScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar1_Scroll);
             // 
             // label1
             // 
@@ -93,7 +85,6 @@ namespace Mellow_Music_Player
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(529, 659);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.lyricToolbarPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -108,7 +99,6 @@ namespace Mellow_Music_Player
         #endregion
         private GradientPanel lyricToolbarPanel;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button closeButton;
     }
