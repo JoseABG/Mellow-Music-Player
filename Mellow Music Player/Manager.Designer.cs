@@ -50,7 +50,7 @@ namespace Mellow_Music_Player
             this.downloadSongInfoButton = new System.Windows.Forms.Button();
             this.toolbarPanel = new Mellow_Music_Player.GradientPanel();
             this.closeButton = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.songList = new System.Windows.Forms.ListBox();
             this.gradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolbarPanel.SuspendLayout();
@@ -155,52 +155,52 @@ namespace Mellow_Music_Player
             // albumLabel
             // 
             this.albumLabel.AutoSize = true;
+            this.albumLabel.BackColor = System.Drawing.Color.Transparent;
             this.albumLabel.Location = new System.Drawing.Point(198, 277);
             this.albumLabel.Name = "albumLabel";
             this.albumLabel.Size = new System.Drawing.Size(46, 15);
             this.albumLabel.TabIndex = 26;
             this.albumLabel.Text = "Sample";
-            this.albumLabel.BackColor = System.Drawing.Color.Transparent;
             // 
             // yearLabel
             // 
             this.yearLabel.AutoSize = true;
+            this.yearLabel.BackColor = System.Drawing.Color.Transparent;
             this.yearLabel.Location = new System.Drawing.Point(198, 302);
             this.yearLabel.Name = "yearLabel";
             this.yearLabel.Size = new System.Drawing.Size(46, 15);
             this.yearLabel.TabIndex = 25;
             this.yearLabel.Text = "Sample";
-            this.yearLabel.BackColor = System.Drawing.Color.Transparent;
             // 
             // genreLabel
             // 
             this.genreLabel.AutoSize = true;
+            this.genreLabel.BackColor = System.Drawing.Color.Transparent;
             this.genreLabel.Location = new System.Drawing.Point(198, 327);
             this.genreLabel.Name = "genreLabel";
             this.genreLabel.Size = new System.Drawing.Size(46, 15);
             this.genreLabel.TabIndex = 24;
             this.genreLabel.Text = "Sample";
-            this.genreLabel.BackColor = System.Drawing.Color.Transparent;
             // 
             // artistLabel
             // 
             this.artistLabel.AutoSize = true;
+            this.artistLabel.BackColor = System.Drawing.Color.Transparent;
             this.artistLabel.Location = new System.Drawing.Point(198, 253);
             this.artistLabel.Name = "artistLabel";
             this.artistLabel.Size = new System.Drawing.Size(46, 15);
             this.artistLabel.TabIndex = 23;
             this.artistLabel.Text = "Sample";
-            this.artistLabel.BackColor = System.Drawing.Color.Transparent;
             // 
             // titleLabel
             // 
             this.titleLabel.AutoSize = true;
+            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Location = new System.Drawing.Point(198, 227);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(46, 15);
             this.titleLabel.TabIndex = 21;
             this.titleLabel.Text = "Sample";
-            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             // 
             // playButton2
             // 
@@ -214,12 +214,12 @@ namespace Mellow_Music_Player
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Location = new System.Drawing.Point(111, 15);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 200);
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             // 
             // lyricsButton
             // 
@@ -258,7 +258,7 @@ namespace Mellow_Music_Player
             // 
             // closeButton
             // 
-            this.closeButton.BackColor = System.Drawing.Color.SkyBlue;
+            this.closeButton.BackColor = System.Drawing.Color.Transparent;
             this.closeButton.ForeColor = System.Drawing.Color.White;
             this.closeButton.Location = new System.Drawing.Point(856, 0);
             this.closeButton.Name = "closeButton";
@@ -268,16 +268,20 @@ namespace Mellow_Music_Player
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
-            // listBox1
+            // songList
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(0, 193);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(517, 469);
-            this.listBox1.TabIndex = 21;
+            this.songList.AllowDrop = true;
+            this.songList.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.songList.FormattingEnabled = true;
+            this.songList.HorizontalScrollbar = true;
+            this.songList.ItemHeight = 15;
+            this.songList.Location = new System.Drawing.Point(0, 193);
+            this.songList.Name = "songList";
+            this.songList.ScrollAlwaysVisible = true;
+            this.songList.Size = new System.Drawing.Size(517, 469);
+            this.songList.TabIndex = 21;
+            this.songList.DragDrop += new System.Windows.Forms.DragEventHandler(this.songList_DragDrop);
+            this.songList.DragEnter += new System.Windows.Forms.DragEventHandler(this.songList_DragEnter);
             // 
             // Manager
             // 
@@ -286,7 +290,7 @@ namespace Mellow_Music_Player
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(901, 661);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.songList);
             this.Controls.Add(this.toolbarPanel);
             this.Controls.Add(this.gradientPanel1);
             this.Controls.Add(this.shuffleButton);
@@ -332,7 +336,7 @@ namespace Mellow_Music_Player
         private Button downloadSongInfoButton;
         private GradientPanel toolbarPanel;
         private Button closeButton;
-        private ListBox listBox1;
+        private ListBox songList;
     }
 }
 
