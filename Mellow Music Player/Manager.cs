@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +14,12 @@ namespace Mellow_Music_Player
     public partial class Manager : Form
     {
         private Point mouseLocation;
+        private Controller controller;
 
         public Manager()
         {
             InitializeComponent();
+            controller = new Controller();
         }
 
         private void songButton_Click(object sender, EventArgs e)
@@ -65,7 +68,7 @@ namespace Mellow_Music_Player
             lyrics.Left = this.Right;
             lyrics.Top = this.Top;
             lyrics.Show();
-            
+
         }
 
         private void downloadSongInfoButton_Click(object sender, EventArgs e)
@@ -73,6 +76,37 @@ namespace Mellow_Music_Player
 
             SongInfoSearch songInfo = new SongInfoSearch();
             songInfo.ShowDialog();
+
+        }
+
+        private void songList_DragDrop(object sender, DragEventArgs e)
+        {
+            
+            if(e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+
+                string[] filepaths = (string[]) e.Data.GetData(DataFormats.FileDrop);
+                ArrayList songNames = controller.parseSongFiles(filepaths);
+                foreach(String songName in songNames)
+                {
+
+                    songList.Items.Add(songName);
+
+                }
+
+
+            }
+
+        }
+
+        private void songList_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+
+                e.Effect = DragDropEffects.All;
+
+            }
 
         }
     }
