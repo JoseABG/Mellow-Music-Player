@@ -8,6 +8,14 @@ namespace Mellow_Music_Player
 {
     class Controller
     {
+        private SongDatabase songDatabase;
+
+        public Controller()
+        {
+
+            songDatabase = new SongDatabase();
+
+        }
 
         public ArrayList parseSongFiles(String[] filepaths)
         {
@@ -19,13 +27,17 @@ namespace Mellow_Music_Player
 
                 if(Path.GetExtension(filename).Equals(".mp3"))
                 {
-
-                    names.Add(Path.GetFileNameWithoutExtension(filename));
-                    
+                    String songName = Path.GetFileNameWithoutExtension(filename);
+                    names.Add(songName);
+                    Song song = new Song(filename, songName);
+                    songDatabase.addSong(song);
+                   
 
                 } 
 
             }
+
+            
 
             return names;
 

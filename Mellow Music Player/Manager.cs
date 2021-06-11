@@ -91,6 +91,7 @@ namespace Mellow_Music_Player
                 {
 
                     songList.Items.Add(songName);
+                    controller.parseSongFiles(filepaths);
 
                 }
 
@@ -107,6 +108,13 @@ namespace Mellow_Music_Player
                 e.Effect = DragDropEffects.All;
 
             }
+
+        }
+
+        private void songList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            titleLabel.Text = songList.SelectedItem.ToString();
 
         }
     }

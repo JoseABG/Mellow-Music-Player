@@ -10,15 +10,39 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
+using System.Collections;
 
 namespace Mellow_Music_Player {
 	public interface songList  {
 
-		/// 
-		/// <param name="song"></param>
-		void addSong(Song song);
+        protected class AlphabetSorter : IComparer
+        {
+            public int Compare(object x, object y)
+            {
+                if(x is Song && y is Song)
+                {
+
+                    Song xConverted = (Song)x;
+                    Song yConverted = (Song)y;
+
+                    return String.Compare(xConverted.songName, yConverted.songName
+                        , StringComparison.OrdinalIgnoreCase);
+
+
+                } else
+                {
+
+                    throw new InvalidCastException();
+
+                }
+
+                
+            }
+        }
+
+        /// 
+        /// <param name="song"></param>
+        void addSong(Song song);
 
 		/// 
 		/// <param name="song"></param>

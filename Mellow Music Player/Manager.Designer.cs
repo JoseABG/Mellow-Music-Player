@@ -272,7 +272,7 @@ namespace Mellow_Music_Player
             // songList
             // 
             this.songList.AllowDrop = true;
-            this.songList.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.songList.ForeColor = System.Drawing.SystemColors.InfoText;
             this.songList.FormattingEnabled = true;
             this.songList.HorizontalScrollbar = true;
             this.songList.ItemHeight = 15;
@@ -280,7 +280,9 @@ namespace Mellow_Music_Player
             this.songList.Name = "songList";
             this.songList.ScrollAlwaysVisible = true;
             this.songList.Size = new System.Drawing.Size(517, 469);
+            this.songList.Sorted = true;
             this.songList.TabIndex = 21;
+            this.songList.SelectedIndexChanged += new System.EventHandler(this.songList_SelectedIndexChanged);
             this.songList.DragDrop += new System.Windows.Forms.DragEventHandler(this.songList_DragDrop);
             this.songList.DragEnter += new System.Windows.Forms.DragEventHandler(this.songList_DragEnter);
             // 

@@ -10,33 +10,35 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
+using System.Collections;
 
 namespace Mellow_Music_Player {
 	public class SongDatabase : songList {
 
-		private List<Song> songs;
+		private ArrayList songs;
 
 		public SongDatabase(){
-
-		}
-
-		~SongDatabase(){
-
+			songs = new ArrayList();
 		}
 
 		/// 
 		/// <param name="song"></param>
 		public void addSong(Song song){
-
+			songs.Add(song);
+			IComparer comparer = new songList.AlphabetSorter();
 		}
 
 		/// 
 		/// <param name="song"></param>
 		public void removeSong(Song song){
-
+			
 		}
+
+		public void sortList()
+        {
+
+
+        }
 
 	}//end SongDatabase
 
