@@ -259,6 +259,7 @@ namespace Mellow_Music_Player
             // closeButton
             // 
             this.closeButton.BackColor = System.Drawing.Color.Transparent;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeButton.ForeColor = System.Drawing.Color.White;
             this.closeButton.Location = new System.Drawing.Point(856, 0);
             this.closeButton.Name = "closeButton";
