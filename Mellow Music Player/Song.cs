@@ -32,8 +32,11 @@ namespace Mellow_Music_Player {
 
 		}
 
-		
+        public override string ToString()
+        {
+            return songName;
+        }
 
-	}//end Song
+    }//end Song
 
 }//end namespace uml

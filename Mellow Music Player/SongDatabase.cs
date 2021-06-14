@@ -26,6 +26,7 @@ namespace Mellow_Music_Player {
 		public void addSong(Song song){
 			songs.Add(song);
 			IComparer comparer = new songList.AlphabetSorter();
+			songs.Sort(comparer);
 		}
 
 		/// 
@@ -33,6 +34,13 @@ namespace Mellow_Music_Player {
 		public void removeSong(Song song){
 			
 		}
+
+		public ArrayList getSongs()
+        {
+
+			return songs;
+
+        }
 
 		public void sortList()
         {

@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Mellow_Music_Player
@@ -20,6 +21,7 @@ namespace Mellow_Music_Player
         {
             InitializeComponent();
             controller = new Controller();
+            songList.DataSource = controller.getList();
         }
 
         private void songButton_Click(object sender, EventArgs e)
@@ -81,19 +83,23 @@ namespace Mellow_Music_Player
 
         private void songList_DragDrop(object sender, DragEventArgs e)
         {
-            
             if(e.Data.GetDataPresent(DataFormats.FileDrop))
             {
 
                 string[] filepaths = (string[]) e.Data.GetData(DataFormats.FileDrop);
+                //controller.parseSongFiles();
+                songList.Refresh();
+
+
+                /*
                 ArrayList songNames = controller.parseSongFiles(filepaths);
                 foreach(String songName in songNames)
                 {
 
                     songList.Items.Add(songName);
-                    controller.parseSongFiles(filepaths);
 
                 }
+                */
 
 
             }
@@ -114,6 +120,7 @@ namespace Mellow_Music_Player
         private void songList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+            
             titleLabel.Text = songList.SelectedItem.ToString();
 
         }

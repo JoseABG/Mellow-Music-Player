@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Diagnostics;
 
 namespace Mellow_Music_Player
 {
@@ -31,15 +32,20 @@ namespace Mellow_Music_Player
                     names.Add(songName);
                     Song song = new Song(filename, songName);
                     songDatabase.addSong(song);
-                   
+                    
 
                 } 
 
             }
 
-            
-
             return names;
+
+        }
+
+        public ArrayList getList()
+        {
+
+            return songDatabase.getSongs();
 
         }
 
