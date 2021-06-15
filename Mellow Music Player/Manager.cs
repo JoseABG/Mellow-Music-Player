@@ -21,12 +21,27 @@ namespace Mellow_Music_Player
         {
             InitializeComponent();
             controller = new Controller();
-            songList.DataSource = controller.getList();
         }
 
         private void songButton_Click(object sender, EventArgs e)
         {
+            foreach(Song song in controller.getList())
+            {
 
+                Debug.WriteLine(song.songName);
+
+            }
+
+
+            List<Song> songs = (List<Song>)songList.DataSource;
+
+            foreach(Song song in songs)
+            {
+
+                Debug.WriteLine(song.songName);
+
+            }
+            
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -87,19 +102,11 @@ namespace Mellow_Music_Player
             {
 
                 string[] filepaths = (string[]) e.Data.GetData(DataFormats.FileDrop);
-                //controller.parseSongFiles();
-                songList.Refresh();
+                controller.parseSongFiles(filepaths);
 
+                songList.DataSource = null;
+                songList.DataSource = controller.getList();
 
-                /*
-                ArrayList songNames = controller.parseSongFiles(filepaths);
-                foreach(String songName in songNames)
-                {
-
-                    songList.Items.Add(songName);
-
-                }
-                */
 
 
             }
@@ -119,9 +126,9 @@ namespace Mellow_Music_Player
 
         private void songList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Song selectedSong = (Song)songList.SelectedItem;
 
-            
-            titleLabel.Text = songList.SelectedItem.ToString();
+            titleLabel.Text = selectedSong.songName;
 
         }
     }

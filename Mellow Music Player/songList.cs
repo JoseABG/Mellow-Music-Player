@@ -15,26 +15,13 @@ using System.Collections;
 namespace Mellow_Music_Player {
 	public interface songList  {
 
-        protected class AlphabetSorter : IComparer
+        protected class AlphabetSorter : IComparer<Song>
         {
-            public int Compare(object x, object y)
+
+            public int Compare(Song x, Song y)
             {
-                if(x is Song && y is Song)
-                {
 
-                    Song xConverted = (Song)x;
-                    Song yConverted = (Song)y;
-
-                    return String.Compare(xConverted.songName, yConverted.songName
-                        , StringComparison.OrdinalIgnoreCase);
-
-
-                } else
-                {
-
-                    throw new InvalidCastException();
-
-                }
+                return string.Compare(x.songName, y.songName, StringComparison.OrdinalIgnoreCase);
 
                 
             }

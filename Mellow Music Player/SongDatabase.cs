@@ -14,18 +14,18 @@ using System.Collections;
 
 namespace Mellow_Music_Player {
 	public class SongDatabase : songList {
-
-		private ArrayList songs;
+		
+		private List<Song> songs;
 
 		public SongDatabase(){
-			songs = new ArrayList();
+			songs = new List<Song>();
 		}
 
 		/// 
 		/// <param name="song"></param>
 		public void addSong(Song song){
 			songs.Add(song);
-			IComparer comparer = new songList.AlphabetSorter();
+			IComparer<Song> comparer = new songList.AlphabetSorter();
 			songs.Sort(comparer);
 		}
 
@@ -35,7 +35,7 @@ namespace Mellow_Music_Player {
 			
 		}
 
-		public ArrayList getSongs()
+		public List<Song> getSongs()
         {
 
 			return songs;

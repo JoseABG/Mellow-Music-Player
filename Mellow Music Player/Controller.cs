@@ -18,10 +18,8 @@ namespace Mellow_Music_Player
 
         }
 
-        public ArrayList parseSongFiles(String[] filepaths)
+        public void parseSongFiles(String[] filepaths)
         {
-
-            ArrayList names = new ArrayList();
 
             foreach(string filename in filepaths)
             {
@@ -29,20 +27,17 @@ namespace Mellow_Music_Player
                 if(Path.GetExtension(filename).Equals(".mp3"))
                 {
                     String songName = Path.GetFileNameWithoutExtension(filename);
-                    names.Add(songName);
                     Song song = new Song(filename, songName);
                     songDatabase.addSong(song);
-                    
+                   
 
                 } 
 
             }
 
-            return names;
-
         }
 
-        public ArrayList getList()
+        public List<Song> getList()
         {
 
             return songDatabase.getSongs();
