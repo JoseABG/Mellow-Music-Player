@@ -25,7 +25,7 @@ namespace Mellow_Music_Player {
 		/// <param name="song"></param>
 		public void addSong(Song song){
 			songs.Add(song);
-			IComparer<Song> comparer = new songList.AlphabetSorter();
+			IComparer<Song> comparer = new AlphabetSorter();
 			songs.Sort(comparer);
 		}
 

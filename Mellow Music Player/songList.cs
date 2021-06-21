@@ -15,18 +15,6 @@ using System.Collections;
 namespace Mellow_Music_Player {
 	public interface songList  {
 
-        protected class AlphabetSorter : IComparer<Song>
-        {
-
-            public int Compare(Song x, Song y)
-            {
-
-                return string.Compare(x.songName, y.songName, StringComparison.OrdinalIgnoreCase);
-
-                
-            }
-        }
-
         /// 
         /// <param name="song"></param>
         void addSong(Song song);
