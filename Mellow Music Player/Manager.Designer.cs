@@ -30,6 +30,7 @@ namespace Mellow_Music_Player
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Manager));
             this.songButton = new System.Windows.Forms.Button();
             this.playlistsButton = new System.Windows.Forms.Button();
             this.recentlyPlayedButton = new System.Windows.Forms.Button();
@@ -38,6 +39,10 @@ namespace Mellow_Music_Player
             this.playButton1 = new System.Windows.Forms.Button();
             this.forwardButton = new System.Windows.Forms.Button();
             this.shuffleButton = new System.Windows.Forms.Button();
+            this.songList = new System.Windows.Forms.ListBox();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.toolbarPanel = new Mellow_Music_Player.GradientPanel();
+            this.closeButton = new System.Windows.Forms.Button();
             this.gradientPanel1 = new Mellow_Music_Player.GradientPanel();
             this.albumLabel = new System.Windows.Forms.Label();
             this.yearLabel = new System.Windows.Forms.Label();
@@ -48,14 +53,12 @@ namespace Mellow_Music_Player
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lyricsButton = new System.Windows.Forms.Button();
             this.downloadSongInfoButton = new System.Windows.Forms.Button();
-            this.toolbarPanel = new Mellow_Music_Player.GradientPanel();
-            this.closeButton = new System.Windows.Forms.Button();
-            this.songList = new System.Windows.Forms.ListBox();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.mediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.toolbarPanel.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.toolbarPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // songButton
@@ -135,6 +138,56 @@ namespace Mellow_Music_Player
             this.shuffleButton.Text = "Shuffle";
             this.shuffleButton.UseVisualStyleBackColor = true;
             // 
+            // songList
+            // 
+            this.songList.AllowDrop = true;
+            this.songList.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.songList.FormattingEnabled = true;
+            this.songList.HorizontalScrollbar = true;
+            this.songList.Location = new System.Drawing.Point(0, 167);
+            this.songList.Name = "songList";
+            this.songList.ScrollAlwaysVisible = true;
+            this.songList.Size = new System.Drawing.Size(444, 407);
+            this.songList.Sorted = true;
+            this.songList.TabIndex = 21;
+            this.songList.SelectedIndexChanged += new System.EventHandler(this.songList_SelectedIndexChanged);
+            this.songList.DragDrop += new System.Windows.Forms.DragEventHandler(this.songList_DragDrop);
+            this.songList.DragEnter += new System.Windows.Forms.DragEventHandler(this.songList_DragEnter);
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(282, 115);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(347, 45);
+            this.trackBar1.TabIndex = 22;
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
+            // 
+            // toolbarPanel
+            // 
+            this.toolbarPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolbarPanel.BottomColor = System.Drawing.Color.SkyBlue;
+            this.toolbarPanel.Controls.Add(this.closeButton);
+            this.toolbarPanel.Location = new System.Drawing.Point(0, 0);
+            this.toolbarPanel.Name = "toolbarPanel";
+            this.toolbarPanel.Size = new System.Drawing.Size(772, 29);
+            this.toolbarPanel.TabIndex = 20;
+            this.toolbarPanel.TopColor = System.Drawing.Color.Aqua;
+            this.toolbarPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gradientPanel2_MouseDown);
+            this.toolbarPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gradientPanel2_MouseMove);
+            // 
+            // closeButton
+            // 
+            this.closeButton.BackColor = System.Drawing.Color.Transparent;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.ForeColor = System.Drawing.Color.White;
+            this.closeButton.Location = new System.Drawing.Point(734, 0);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(38, 29);
+            this.closeButton.TabIndex = 0;
+            this.closeButton.Text = "X";
+            this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
             // gradientPanel1
             // 
             this.gradientPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -213,6 +266,7 @@ namespace Mellow_Music_Player
             this.playButton2.TabIndex = 22;
             this.playButton2.Text = "Play";
             this.playButton2.UseVisualStyleBackColor = false;
+            this.playButton2.Click += new System.EventHandler(this.playButton2_Click);
             // 
             // pictureBox1
             // 
@@ -245,55 +299,15 @@ namespace Mellow_Music_Player
             this.downloadSongInfoButton.UseVisualStyleBackColor = false;
             this.downloadSongInfoButton.Click += new System.EventHandler(this.downloadSongInfoButton_Click);
             // 
-            // toolbarPanel
+            // mediaPlayer
             // 
-            this.toolbarPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolbarPanel.BottomColor = System.Drawing.Color.SkyBlue;
-            this.toolbarPanel.Controls.Add(this.closeButton);
-            this.toolbarPanel.Location = new System.Drawing.Point(0, 0);
-            this.toolbarPanel.Name = "toolbarPanel";
-            this.toolbarPanel.Size = new System.Drawing.Size(772, 29);
-            this.toolbarPanel.TabIndex = 20;
-            this.toolbarPanel.TopColor = System.Drawing.Color.Aqua;
-            this.toolbarPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gradientPanel2_MouseDown);
-            this.toolbarPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gradientPanel2_MouseMove);
-            // 
-            // closeButton
-            // 
-            this.closeButton.BackColor = System.Drawing.Color.Transparent;
-            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeButton.ForeColor = System.Drawing.Color.White;
-            this.closeButton.Location = new System.Drawing.Point(734, 0);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(38, 29);
-            this.closeButton.TabIndex = 0;
-            this.closeButton.Text = "X";
-            this.closeButton.UseVisualStyleBackColor = false;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
-            // 
-            // songList
-            // 
-            this.songList.AllowDrop = true;
-            this.songList.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.songList.FormattingEnabled = true;
-            this.songList.HorizontalScrollbar = true;
-            this.songList.Location = new System.Drawing.Point(0, 167);
-            this.songList.Name = "songList";
-            this.songList.ScrollAlwaysVisible = true;
-            this.songList.Size = new System.Drawing.Size(444, 407);
-            this.songList.Sorted = true;
-            this.songList.TabIndex = 21;
-            this.songList.SelectedIndexChanged += new System.EventHandler(this.songList_SelectedIndexChanged);
-            this.songList.DragDrop += new System.Windows.Forms.DragEventHandler(this.songList_DragDrop);
-            this.songList.DragEnter += new System.Windows.Forms.DragEventHandler(this.songList_DragEnter);
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(282, 115);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(347, 45);
-            this.trackBar1.TabIndex = 22;
-            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.mediaPlayer.Enabled = true;
+            this.mediaPlayer.Location = new System.Drawing.Point(13, 87);
+            this.mediaPlayer.Name = "mediaPlayer";
+            this.mediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mediaPlayer.OcxState")));
+            this.mediaPlayer.Size = new System.Drawing.Size(75, 23);
+            this.mediaPlayer.TabIndex = 23;
+            this.mediaPlayer.Visible = false;
             // 
             // Manager
             // 
@@ -302,6 +316,7 @@ namespace Mellow_Music_Player
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(772, 573);
+            this.Controls.Add(this.mediaPlayer);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.songList);
             this.Controls.Add(this.toolbarPanel);
@@ -319,10 +334,11 @@ namespace Mellow_Music_Player
             this.Name = "Manager";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Manager_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.toolbarPanel.ResumeLayout(false);
             this.gradientPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.toolbarPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,6 +368,7 @@ namespace Mellow_Music_Player
         private Button closeButton;
         private ListBox songList;
         private TrackBar trackBar1;
+        private AxWMPLib.AxWindowsMediaPlayer mediaPlayer;
     }
 }
 
