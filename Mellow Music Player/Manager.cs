@@ -137,23 +137,35 @@ namespace Mellow_Music_Player
 
         private void playButton2_Click(object sender, EventArgs e)
         {
-            if(playButton1.Text.Equals("Play"))
+            if (getCurrentSelectedSong() != null)
             {
+                if (playButton1.Text.Equals("Play"))
+                {
 
-                
-                playButton1.Text = "Pause";
-                playButton2.Text = "Pause";
 
-                mediaPlayer.URL =getCurrentSelectedSong().songFilepath;
-                // mediaPlayer.Ctlcontrols.play();
+                    playButton1.Text = "Pause";
+                    playButton2.Text = "Pause";
 
-            } else {
+                    if (getCurrentSelectedSong().songFilepath.Equals(mediaPlayer.URL))
+                    {
+                        mediaPlayer.Ctlcontrols.play();
+                    }
+                    else
+                    {
 
-                playButton1.Text = "Play";
-                playButton2.Text = "Play";
+                        mediaPlayer.URL = getCurrentSelectedSong().songFilepath;
+                    }
 
-                mediaPlayer.Ctlcontrols.pause();
+                }
+                else
+                {
 
+                    playButton1.Text = "Play";
+                    playButton2.Text = "Play";
+
+                    mediaPlayer.Ctlcontrols.pause();
+
+                }
             }
         }
 
