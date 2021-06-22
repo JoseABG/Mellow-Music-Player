@@ -175,5 +175,35 @@ namespace Mellow_Music_Player
             return (Song)songList.SelectedItem;
 
         }
+
+        private void mediaPlayer_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+
+            if(mediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+
+                musicTrackbar1.Maximum = (int)mediaPlayer.Ctlcontrols.currentItem.duration;
+                musicTimer.Start();
+
+            } else if(mediaPlayer.playState == WMPLib.WMPPlayState.wmppsPaused)
+            {
+
+                musicTimer.Stop();
+
+            }
+
+        }
+
+        private void musicTimer_Tick(object sender, EventArgs e)
+        {
+
+            if(mediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+
+                musicTrackbar1.Value = (int)mediaPlayer.Ctlcontrols.currentPosition;
+
+            }
+
+        }
     }
 }
