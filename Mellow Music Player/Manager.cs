@@ -130,12 +130,10 @@ namespace Mellow_Music_Player
 
             titleLabel.Text = selectedSong.songName;
 
-            //mediaPlayer.URL = selectedSong.songFilepath;
-            //mediaPlayer.Ctlcontrols.stop();
 
         }
 
-        private void playButton2_Click(object sender, EventArgs e)
+        private void playButton_Click(object sender, EventArgs e)
         {
             if (getCurrentSelectedSong() != null)
             {
@@ -181,14 +179,21 @@ namespace Mellow_Music_Player
 
             if(mediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
+                int songDuration = (int)mediaPlayer.Ctlcontrols.currentItem.duration;
+                musicTrackbar1.Maximum = songDuration;
 
-                musicTrackbar1.Maximum = (int)mediaPlayer.Ctlcontrols.currentItem.duration;
                 musicTimer.Start();
 
             } else if(mediaPlayer.playState == WMPLib.WMPPlayState.wmppsPaused)
             {
 
                 musicTimer.Stop();
+
+            } else if(mediaPlayer.playState == WMPLib.WMPPlayState.wmppsMediaEnded )
+            {
+
+                playButton1.Text = "Play";
+                playButton2.Text = "Play";
 
             }
 
@@ -201,6 +206,22 @@ namespace Mellow_Music_Player
             {
 
                 musicTrackbar1.Value = (int)mediaPlayer.Ctlcontrols.currentPosition;
+
+            }
+
+        }
+
+        private void musicTrackbar1_Scroll(object sender, EventArgs e)
+        {
+
+            if(getCurrentSelectedSong() != null)
+            {
+
+                musicTimer.Stop();
+
+                
+                mediaPlayer.Ctlcontrols.currentPosition = musicTrackbar1.Value;
+                musicTimer.Start();
 
             }
 

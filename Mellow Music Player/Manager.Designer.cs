@@ -42,6 +42,9 @@ namespace Mellow_Music_Player
             this.shuffleButton = new System.Windows.Forms.Button();
             this.songList = new System.Windows.Forms.ListBox();
             this.musicTrackbar1 = new System.Windows.Forms.TrackBar();
+            this.mediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
+            this.musicTimer = new System.Windows.Forms.Timer(this.components);
+            this.songDurationLabel = new System.Windows.Forms.Label();
             this.toolbarPanel = new Mellow_Music_Player.GradientPanel();
             this.closeButton = new System.Windows.Forms.Button();
             this.gradientPanel1 = new Mellow_Music_Player.GradientPanel();
@@ -54,13 +57,11 @@ namespace Mellow_Music_Player
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lyricsButton = new System.Windows.Forms.Button();
             this.downloadSongInfoButton = new System.Windows.Forms.Button();
-            this.mediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
-            this.musicTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.musicTrackbar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).BeginInit();
             this.toolbarPanel.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // songButton
@@ -121,6 +122,7 @@ namespace Mellow_Music_Player
             this.playButton1.TabIndex = 15;
             this.playButton1.Text = "Play";
             this.playButton1.UseVisualStyleBackColor = true;
+            this.playButton1.Click += new System.EventHandler(this.playButton_Click);
             // 
             // forwardButton
             // 
@@ -133,7 +135,7 @@ namespace Mellow_Music_Player
             // 
             // shuffleButton
             // 
-            this.shuffleButton.Location = new System.Drawing.Point(663, 115);
+            this.shuffleButton.Location = new System.Drawing.Point(677, 115);
             this.shuffleButton.Name = "shuffleButton";
             this.shuffleButton.Size = new System.Drawing.Size(64, 20);
             this.shuffleButton.TabIndex = 17;
@@ -163,6 +165,31 @@ namespace Mellow_Music_Player
             this.musicTrackbar1.Size = new System.Drawing.Size(347, 45);
             this.musicTrackbar1.TabIndex = 22;
             this.musicTrackbar1.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.musicTrackbar1.Scroll += new System.EventHandler(this.musicTrackbar1_Scroll);
+            // 
+            // mediaPlayer
+            // 
+            this.mediaPlayer.Enabled = true;
+            this.mediaPlayer.Location = new System.Drawing.Point(13, 87);
+            this.mediaPlayer.Name = "mediaPlayer";
+            this.mediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mediaPlayer.OcxState")));
+            this.mediaPlayer.Size = new System.Drawing.Size(75, 23);
+            this.mediaPlayer.TabIndex = 23;
+            this.mediaPlayer.Visible = false;
+            this.mediaPlayer.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.mediaPlayer_PlayStateChange);
+            // 
+            // musicTimer
+            // 
+            this.musicTimer.Interval = 1000;
+            this.musicTimer.Tick += new System.EventHandler(this.musicTimer_Tick);
+            // 
+            // songDurationLabel
+            // 
+            this.songDurationLabel.AutoSize = true;
+            this.songDurationLabel.Location = new System.Drawing.Point(629, 119);
+            this.songDurationLabel.Name = "songDurationLabel";
+            this.songDurationLabel.Size = new System.Drawing.Size(0, 13);
+            this.songDurationLabel.TabIndex = 24;
             // 
             // toolbarPanel
             // 
@@ -268,7 +295,7 @@ namespace Mellow_Music_Player
             this.playButton2.TabIndex = 22;
             this.playButton2.Text = "Play";
             this.playButton2.UseVisualStyleBackColor = false;
-            this.playButton2.Click += new System.EventHandler(this.playButton2_Click);
+            this.playButton2.Click += new System.EventHandler(this.playButton_Click);
             // 
             // pictureBox1
             // 
@@ -301,22 +328,6 @@ namespace Mellow_Music_Player
             this.downloadSongInfoButton.UseVisualStyleBackColor = false;
             this.downloadSongInfoButton.Click += new System.EventHandler(this.downloadSongInfoButton_Click);
             // 
-            // mediaPlayer
-            // 
-            this.mediaPlayer.Enabled = true;
-            this.mediaPlayer.Location = new System.Drawing.Point(13, 87);
-            this.mediaPlayer.Name = "mediaPlayer";
-            this.mediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mediaPlayer.OcxState")));
-            this.mediaPlayer.Size = new System.Drawing.Size(75, 23);
-            this.mediaPlayer.TabIndex = 23;
-            this.mediaPlayer.Visible = false;
-            this.mediaPlayer.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.mediaPlayer_PlayStateChange);
-            // 
-            // musicTimer
-            // 
-            this.musicTimer.Interval = 1000;
-            this.musicTimer.Tick += new System.EventHandler(this.musicTimer_Tick);
-            // 
             // Manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,6 +335,7 @@ namespace Mellow_Music_Player
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(772, 573);
+            this.Controls.Add(this.songDurationLabel);
             this.Controls.Add(this.mediaPlayer);
             this.Controls.Add(this.musicTrackbar1);
             this.Controls.Add(this.songList);
@@ -343,10 +355,10 @@ namespace Mellow_Music_Player
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Manager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.musicTrackbar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).EndInit();
             this.toolbarPanel.ResumeLayout(false);
             this.gradientPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,6 +390,7 @@ namespace Mellow_Music_Player
         private TrackBar musicTrackbar1;
         private AxWMPLib.AxWindowsMediaPlayer mediaPlayer;
         private Timer musicTimer;
+        private Label songDurationLabel;
     }
 }
 
