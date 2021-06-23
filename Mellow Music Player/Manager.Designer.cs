@@ -166,6 +166,7 @@ namespace Mellow_Music_Player
             this.musicTrackbar1.TabIndex = 22;
             this.musicTrackbar1.TickStyle = System.Windows.Forms.TickStyle.None;
             this.musicTrackbar1.Scroll += new System.EventHandler(this.musicTrackbar1_Scroll);
+            this.musicTrackbar1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.musicTrackbar1_MouseUp);
             // 
             // mediaPlayer
             // 
@@ -353,7 +354,6 @@ namespace Mellow_Music_Player
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Manager";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Manager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.musicTrackbar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).EndInit();
             this.toolbarPanel.ResumeLayout(false);

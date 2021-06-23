@@ -49,10 +49,6 @@ namespace Mellow_Music_Player
 
         }
 
-        private void Manager_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void closeButton_Click(object sender, EventArgs e)
         {
@@ -141,8 +137,7 @@ namespace Mellow_Music_Player
                 {
 
 
-                    playButton1.Text = "Pause";
-                    playButton2.Text = "Pause";
+                    changePlayButtonText();
 
                     if (getCurrentSelectedSong().songFilepath.Equals(mediaPlayer.URL))
                     {
@@ -158,8 +153,7 @@ namespace Mellow_Music_Player
                 else
                 {
 
-                    playButton1.Text = "Play";
-                    playButton2.Text = "Play";
+                    changePlayButtonText();
 
                     mediaPlayer.Ctlcontrols.pause();
 
@@ -192,8 +186,7 @@ namespace Mellow_Music_Player
             } else if(mediaPlayer.playState == WMPLib.WMPPlayState.wmppsMediaEnded )
             {
 
-                playButton1.Text = "Play";
-                playButton2.Text = "Play";
+                changePlayButtonText();
 
             }
 
@@ -217,11 +210,40 @@ namespace Mellow_Music_Player
             if(getCurrentSelectedSong() != null)
             {
 
-                musicTimer.Stop();
-
+                mediaPlayer.Ctlcontrols.pause();
                 
                 mediaPlayer.Ctlcontrols.currentPosition = musicTrackbar1.Value;
-                musicTimer.Start();
+
+            }
+
+        }
+
+        private void musicTrackbar1_MouseUp(object sender, MouseEventArgs e)
+        {
+
+            if(e.Button == MouseButtons.Left)
+            {
+
+                mediaPlayer.Ctlcontrols.play();
+
+            }
+
+        }
+
+        private void changePlayButtonText()
+        {
+
+            if(playButton1.Text.Equals("Play"))
+            {
+
+                playButton1.Text = "Pause";
+                playButton2.Text = "Pause";
+
+            } else
+            {
+
+                playButton1.Text = "Play";
+                playButton2.Text = "Play";
 
             }
 
