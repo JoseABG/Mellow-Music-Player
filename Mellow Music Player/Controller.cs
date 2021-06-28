@@ -3,31 +3,45 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Diagnostics;
+
 
 namespace Mellow_Music_Player
 {
     class Controller
     {
+        private SongDatabase songDatabase;
 
-        public ArrayList parseSongFiles(String[] filepaths)
+        public Controller()
         {
 
-            ArrayList names = new ArrayList();
+            songDatabase = new SongDatabase();
+
+        }
+
+        public void parseSongFiles(String[] filepaths)
+        {
 
             foreach(string filename in filepaths)
             {
 
                 if(Path.GetExtension(filename).Equals(".mp3"))
                 {
-
-                    names.Add(Path.GetFileNameWithoutExtension(filename));
-                    
+                    String songName = Path.GetFileNameWithoutExtension(filename);
+                    Song song = new Song(filename, songName);
+                    songDatabase.addSong(song);
+                   
 
                 } 
 
             }
 
-            return names;
+        }
+
+        public List<Song> getList()
+        {
+
+            return songDatabase.getSongs();
 
         }
 

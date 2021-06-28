@@ -68,18 +68,18 @@ namespace Mellow_Music_Player
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(387, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 18);
             this.label3.TabIndex = 9;
             this.label3.Text = "Info Downloader";
-            this.label3.BackColor = System.Drawing.Color.Transparent;
             // 
             // closeButton
             // 
-            this.closeButton.BackColor = System.Drawing.Color.SkyBlue;
+            this.closeButton.BackColor = System.Drawing.Color.Transparent;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeButton.ForeColor = System.Drawing.Color.White;
             this.closeButton.Location = new System.Drawing.Point(825, -1);
             this.closeButton.Name = "closeButton";
@@ -128,62 +128,61 @@ namespace Mellow_Music_Player
             // albumLabel
             // 
             this.albumLabel.AutoSize = true;
+            this.albumLabel.BackColor = System.Drawing.Color.Transparent;
             this.albumLabel.Location = new System.Drawing.Point(214, 286);
             this.albumLabel.Name = "albumLabel";
             this.albumLabel.Size = new System.Drawing.Size(46, 15);
             this.albumLabel.TabIndex = 32;
             this.albumLabel.Text = "Sample";
-            this.albumLabel.BackColor = System.Drawing.Color.Transparent;
             // 
             // yearLabel
             // 
             this.yearLabel.AutoSize = true;
+            this.yearLabel.BackColor = System.Drawing.Color.Transparent;
             this.yearLabel.Location = new System.Drawing.Point(214, 311);
             this.yearLabel.Name = "yearLabel";
             this.yearLabel.Size = new System.Drawing.Size(46, 15);
             this.yearLabel.TabIndex = 31;
             this.yearLabel.Text = "Sample";
-            this.yearLabel.BackColor = System.Drawing.Color.Transparent;
             // 
             // genreLabel
             // 
             this.genreLabel.AutoSize = true;
+            this.genreLabel.BackColor = System.Drawing.Color.Transparent;
             this.genreLabel.Location = new System.Drawing.Point(214, 336);
             this.genreLabel.Name = "genreLabel";
             this.genreLabel.Size = new System.Drawing.Size(46, 15);
             this.genreLabel.TabIndex = 30;
             this.genreLabel.Text = "Sample";
-            this.genreLabel.BackColor = System.Drawing.Color.Transparent;
             // 
             // artistLabel
             // 
             this.artistLabel.AutoSize = true;
+            this.artistLabel.BackColor = System.Drawing.Color.Transparent;
             this.artistLabel.Location = new System.Drawing.Point(214, 262);
             this.artistLabel.Name = "artistLabel";
             this.artistLabel.Size = new System.Drawing.Size(46, 15);
             this.artistLabel.TabIndex = 29;
             this.artistLabel.Text = "Sample";
-            this.albumLabel.BackColor = System.Drawing.Color.Transparent;
-            this.artistLabel.BackColor = System.Drawing.Color.Transparent;
             // 
             // titleLabel
             // 
             this.titleLabel.AutoSize = true;
+            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Location = new System.Drawing.Point(214, 236);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(46, 15);
             this.titleLabel.TabIndex = 28;
             this.titleLabel.Text = "Sample";
-            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Location = new System.Drawing.Point(127, 24);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 200);
             this.pictureBox1.TabIndex = 27;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             // 
             // listBox1
             // 

@@ -16,22 +16,28 @@ using System.IO;
 namespace Mellow_Music_Player {
 	public class Song {
 
-		private string album;
-		private string albumCover;
-		private string artist;
-		private string genre;
-		private string songFilepath;
-		private string songName;
-		private int year;
+		public string album { get; set; }
+		public string albumCover { get; set; }
+		public string artist { get; set; }
+		public string genre { get; set; }
+		public string songFilepath { get; set; }
+		public string songName { get; set; }
+		public int year { get; set; }
+		public TimeSpan duration { get; set; }
 
-		public Song(){
+		public Song(string songFilepath, string songName){
+
+
+			this.songFilepath = songFilepath;
+			this.songName = songName;
 
 		}
 
-		~Song(){
+        public override string ToString()
+        {
+            return songName;
+        }
 
-		}
-
-	}//end Song
+    }//end Song
 
 }//end namespace uml
