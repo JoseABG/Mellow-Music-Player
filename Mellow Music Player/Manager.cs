@@ -225,6 +225,8 @@ namespace Mellow_Music_Player
             {
 
                 mediaPlayer.Ctlcontrols.play();
+                playButton1.Text = "Pause";
+                playButton2.Text = "Pause";
 
             }
 
