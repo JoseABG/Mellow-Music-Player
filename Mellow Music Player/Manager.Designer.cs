@@ -107,7 +107,7 @@ namespace Mellow_Music_Player
             // 
             // reverseButton
             // 
-            this.reverseButton.Location = new System.Drawing.Point(29, 115);
+            this.reverseButton.Location = new System.Drawing.Point(12, 115);
             this.reverseButton.Name = "reverseButton";
             this.reverseButton.Size = new System.Drawing.Size(64, 20);
             this.reverseButton.TabIndex = 14;
@@ -116,7 +116,7 @@ namespace Mellow_Music_Player
             // 
             // playButton1
             // 
-            this.playButton1.Location = new System.Drawing.Point(111, 115);
+            this.playButton1.Location = new System.Drawing.Point(94, 115);
             this.playButton1.Name = "playButton1";
             this.playButton1.Size = new System.Drawing.Size(64, 20);
             this.playButton1.TabIndex = 15;
@@ -126,7 +126,7 @@ namespace Mellow_Music_Player
             // 
             // forwardButton
             // 
-            this.forwardButton.Location = new System.Drawing.Point(193, 115);
+            this.forwardButton.Location = new System.Drawing.Point(176, 115);
             this.forwardButton.Name = "forwardButton";
             this.forwardButton.Size = new System.Drawing.Size(64, 20);
             this.forwardButton.TabIndex = 16;
@@ -135,7 +135,7 @@ namespace Mellow_Music_Player
             // 
             // shuffleButton
             // 
-            this.shuffleButton.Location = new System.Drawing.Point(677, 115);
+            this.shuffleButton.Location = new System.Drawing.Point(698, 115);
             this.shuffleButton.Name = "shuffleButton";
             this.shuffleButton.Size = new System.Drawing.Size(64, 20);
             this.shuffleButton.TabIndex = 17;
@@ -160,7 +160,7 @@ namespace Mellow_Music_Player
             // 
             // musicTrackbar1
             // 
-            this.musicTrackbar1.Location = new System.Drawing.Point(282, 115);
+            this.musicTrackbar1.Location = new System.Drawing.Point(265, 115);
             this.musicTrackbar1.Name = "musicTrackbar1";
             this.musicTrackbar1.Size = new System.Drawing.Size(347, 45);
             this.musicTrackbar1.TabIndex = 22;
@@ -187,7 +187,7 @@ namespace Mellow_Music_Player
             // songDurationLabel
             // 
             this.songDurationLabel.AutoSize = true;
-            this.songDurationLabel.Location = new System.Drawing.Point(629, 119);
+            this.songDurationLabel.Location = new System.Drawing.Point(615, 119);
             this.songDurationLabel.Name = "songDurationLabel";
             this.songDurationLabel.Size = new System.Drawing.Size(0, 13);
             this.songDurationLabel.TabIndex = 24;
