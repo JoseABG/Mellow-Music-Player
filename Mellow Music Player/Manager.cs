@@ -25,23 +25,9 @@ namespace Mellow_Music_Player
 
         private void songButton_Click(object sender, EventArgs e)
         {
-            foreach(Song song in controller.getList())
-            {
 
-                Debug.WriteLine(song.songName);
+            Debug.WriteLine("Hello");
 
-            }
-
-
-            List<Song> songs = (List<Song>)songList.DataSource;
-
-            foreach(Song song in songs)
-            {
-
-                Debug.WriteLine(song.songName);
-
-            }
-            
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -136,17 +122,19 @@ namespace Mellow_Music_Player
                 if (playButton1.Text.Equals("Play"))
                 {
 
-
                     changePlayButtonText();
 
                     if (getCurrentSelectedSong().songFilepath.Equals(mediaPlayer.URL))
                     {
+
                         mediaPlayer.Ctlcontrols.play();
+
                     }
                     else
                     {
 
                         mediaPlayer.URL = getCurrentSelectedSong().songFilepath;
+
                     }
 
                 }
@@ -173,9 +161,12 @@ namespace Mellow_Music_Player
 
             if(mediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
-                int songDuration = (int)mediaPlayer.Ctlcontrols.currentItem.duration;
-                musicTrackbar1.Maximum = songDuration;
 
+                int songDuration = (int)mediaPlayer.Ctlcontrols.currentItem.duration;
+                string duration = controller.parseTime(songDuration);
+                controller.setCurrentSongDuration(duration);
+
+                musicTrackbar1.Maximum = songDuration;
                 musicTimer.Start();
 
             } else if(mediaPlayer.playState == WMPLib.WMPPlayState.wmppsPaused)
@@ -198,7 +189,12 @@ namespace Mellow_Music_Player
             if(mediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
 
-                musicTrackbar1.Value = (int)mediaPlayer.Ctlcontrols.currentPosition;
+                int currentPosition = (int)mediaPlayer.Ctlcontrols.currentPosition;
+                musicTrackbar1.Value = currentPosition;
+                string currentPositionFormatted = controller.parseTime(currentPosition);
+                
+                songDurationLabel.Text = string.Format("{0}/{1}", currentPositionFormatted, controller.getCurrentSongDuration());
+
 
             }
 
