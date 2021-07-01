@@ -48,6 +48,31 @@ namespace Mellow_Music_Player {
 
         }
 
+		public List<Song> shuffle()
+        {
+
+			Random random = new Random();
+
+			int databaseSize = songs.Count;
+			List<Song> shuffledList = new List<Song>(songs);
+
+			while(databaseSize > 1)
+            {
+
+				databaseSize--;
+
+				int randomIndex = random.Next(databaseSize + 1);
+
+				Song song = shuffledList[randomIndex];
+				shuffledList[randomIndex] = shuffledList[databaseSize];
+				shuffledList[databaseSize] = song;
+
+            }
+
+			return shuffledList;
+
+        }
+
 	}//end SongDatabase
 
 }//end namespace uml

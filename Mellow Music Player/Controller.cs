@@ -12,6 +12,8 @@ namespace Mellow_Music_Player
     {
         private SongDatabase songDatabase;
         private string currentSongDuration;
+        private List<Song> shuffledSongList;
+        private int currentIndex;
 
         public Controller()
         {
@@ -66,6 +68,58 @@ namespace Mellow_Music_Player
 
             TimeSpan span = TimeSpan.FromSeconds(seconds);
             return span.ToString(@"mm\:ss");
+
+        }
+
+        public void createShuffledSongList()
+        {
+
+            shuffledSongList = songDatabase.shuffle();
+            currentIndex = 0;
+
+            foreach(Song song in shuffledSongList)
+            {
+
+                Debug.WriteLine(song.songName);
+
+            }
+        }
+
+        public Song getNextShuffledSong()
+        {
+
+            if(currentIndex == shuffledSongList.Count)
+            {
+
+                currentIndex = 0;
+                return shuffledSongList[currentIndex++];
+
+            } else
+            {
+
+                return shuffledSongList[currentIndex++];
+
+            }
+
+            
+
+        }
+
+        public Song getPreviousShuffledSong()
+        {
+
+            if(currentIndex == 0)
+            {
+
+                currentIndex = shuffledSongList.Count - 1;
+                return shuffledSongList[currentIndex--];
+
+            } else
+            {
+
+                return shuffledSongList[currentIndex--];
+
+            }
 
         }
 

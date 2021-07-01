@@ -255,7 +255,7 @@ namespace Mellow_Music_Player
                 if (shuffleButton.Text.Equals("Unshuffle"))
                 {
 
-
+                    mediaPlayer.URL = controller.getNextShuffledSong().songFilepath;
 
                 }
                 else
@@ -291,7 +291,7 @@ namespace Mellow_Music_Player
                 if(shuffleButton.Text.Equals("Unshuffle"))
                 {
 
-
+                    mediaPlayer.URL = controller.getPreviousShuffledSong().songFilepath;
 
                 } else
                 {
@@ -314,6 +314,25 @@ namespace Mellow_Music_Player
 
                 }
 
+
+            }
+
+        }
+
+        private void shuffleButton_Click(object sender, EventArgs e)
+        {
+
+             if(shuffleButton.Text.Equals("Shuffle"))
+            {
+
+                shuffleButton.Text = "Unshuffle";
+                controller.createShuffledSongList();
+
+
+            } else
+            {
+
+                shuffleButton.Text = "Shuffle";
 
             }
 
