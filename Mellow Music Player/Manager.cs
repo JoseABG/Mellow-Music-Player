@@ -246,5 +246,96 @@ namespace Mellow_Music_Player
             }
 
         }
+
+        private void forwardButton_Click(object sender, EventArgs e)
+        {
+
+            if (getCurrentSelectedSong() != null)
+            {
+                if (shuffleButton.Text.Equals("Unshuffle"))
+                {
+
+                    mediaPlayer.URL = controller.getNextShuffledSong().songFilepath;
+
+                }
+                else
+                {
+
+                    int index = songList.SelectedIndex;
+
+                    if ((index + 1) >= songList.Items.Count)
+                    {
+
+                        songList.SelectedIndex = 0;
+                        mediaPlayer.URL = getCurrentSelectedSong().songFilepath;
+
+                    }
+                    else
+                    {
+
+                        songList.SelectedIndex = index + 1;
+                        mediaPlayer.URL = getCurrentSelectedSong().songFilepath;
+
+                    }
+                }
+            }
+
+        }
+
+        private void reverseButton_Click(object sender, EventArgs e)
+        {
+
+            if(getCurrentSelectedSong() != null)
+            {
+
+                if(shuffleButton.Text.Equals("Unshuffle"))
+                {
+
+                    mediaPlayer.URL = controller.getPreviousShuffledSong().songFilepath;
+
+                } else
+                {
+
+                    int index = songList.SelectedIndex;
+
+                    if((index - 1) >= 0)
+                    {
+
+                        songList.SelectedIndex = index - 1;
+                        mediaPlayer.URL = getCurrentSelectedSong().songFilepath;
+
+                    } else
+                    {
+
+                        songList.SelectedIndex = songList.Items.Count - 1;
+                        mediaPlayer.URL = getCurrentSelectedSong().songFilepath;
+
+                    }
+
+                }
+
+
+            }
+
+        }
+
+        private void shuffleButton_Click(object sender, EventArgs e)
+        {
+
+             if(shuffleButton.Text.Equals("Shuffle"))
+            {
+
+                shuffleButton.Text = "Unshuffle";
+                controller.createShuffledSongList();
+
+
+            } else
+            {
+
+                shuffleButton.Text = "Shuffle";
+
+            }
+
+        }
     }
 }

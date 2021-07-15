@@ -113,6 +113,7 @@ namespace Mellow_Music_Player
             this.reverseButton.TabIndex = 14;
             this.reverseButton.Text = "Reverse";
             this.reverseButton.UseVisualStyleBackColor = true;
+            this.reverseButton.Click += new System.EventHandler(this.reverseButton_Click);
             // 
             // playButton1
             // 
@@ -132,6 +133,7 @@ namespace Mellow_Music_Player
             this.forwardButton.TabIndex = 16;
             this.forwardButton.Text = "Forward";
             this.forwardButton.UseVisualStyleBackColor = true;
+            this.forwardButton.Click += new System.EventHandler(this.forwardButton_Click);
             // 
             // shuffleButton
             // 
@@ -141,6 +143,7 @@ namespace Mellow_Music_Player
             this.shuffleButton.TabIndex = 17;
             this.shuffleButton.Text = "Shuffle";
             this.shuffleButton.UseVisualStyleBackColor = true;
+            this.shuffleButton.Click += new System.EventHandler(this.shuffleButton_Click);
             // 
             // songList
             // 
