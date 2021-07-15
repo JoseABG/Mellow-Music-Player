@@ -39,6 +39,13 @@ namespace Mellow_Music_Player {
 
 		}
 
+		public List<Song> shuffle()
+        {
+
+			return null;
+
+        }
+
 	}//end Playlist
 
 }//end namespace uml

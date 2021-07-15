@@ -143,6 +143,7 @@ namespace Mellow_Music_Player
             this.shuffleButton.TabIndex = 17;
             this.shuffleButton.Text = "Shuffle";
             this.shuffleButton.UseVisualStyleBackColor = true;
+            this.shuffleButton.Click += new System.EventHandler(this.shuffleButton_Click);
             // 
             // songList
             // 

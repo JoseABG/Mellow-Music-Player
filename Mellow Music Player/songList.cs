@@ -22,6 +22,8 @@ namespace Mellow_Music_Player {
 		/// 
 		/// <param name="song"></param>
 		void removeSong(Song song);
+
+		List<Song> shuffle();
 	}//end songList
 
 }//end namespace uml
