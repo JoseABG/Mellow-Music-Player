@@ -14,6 +14,7 @@ namespace Mellow_Music_Player
         private string currentSongDuration;
         private List<Song> shuffledSongList;
         private int currentIndex;
+        private bool hasMovedForward;
 
         public Controller()
         {
@@ -76,6 +77,7 @@ namespace Mellow_Music_Player
 
             shuffledSongList = songDatabase.shuffle();
             currentIndex = 0;
+            hasMovedForward = true;
 
             foreach(Song song in shuffledSongList)
             {
@@ -88,25 +90,52 @@ namespace Mellow_Music_Player
         public Song getNextShuffledSong()
         {
 
-            if(currentIndex == shuffledSongList.Count)
+            Debug.WriteLine(currentIndex);
+          
+            if (currentIndex >= shuffledSongList.Count)
             {
 
                 currentIndex = 0;
                 return shuffledSongList[currentIndex++];
 
-            } else
+            }
+            else
             {
 
-                return shuffledSongList[currentIndex++];
+               
+                if(hasMovedForward)
+                {
+
+                    return shuffledSongList[currentIndex++];
+
+                } else
+                {
+
+                    if(currentIndex + 1 >= shuffledSongList.Count)
+                    {
+
+                        currentIndex = -1;
+
+                    }
+
+                    return shuffledSongList[++currentIndex];
+
+                }
+                
+                
+                
 
             }
-
-            
+           
 
         }
 
         public Song getPreviousShuffledSong()
         {
+
+            Debug.WriteLine(currentIndex);
+
+            hasMovedForward = false;
 
             if(currentIndex == 0)
             {
@@ -114,12 +143,13 @@ namespace Mellow_Music_Player
                 currentIndex = shuffledSongList.Count - 1;
                 return shuffledSongList[currentIndex--];
 
-            } else
+            }  else
             {
 
-                return shuffledSongList[currentIndex--];
+                return shuffledSongList[--currentIndex];
 
             }
+            
 
         }
 
