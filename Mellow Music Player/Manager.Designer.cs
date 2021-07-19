@@ -45,6 +45,8 @@ namespace Mellow_Music_Player
             this.mediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.musicTimer = new System.Windows.Forms.Timer(this.components);
             this.songDurationLabel = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.favoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolbarPanel = new Mellow_Music_Player.GradientPanel();
             this.closeButton = new System.Windows.Forms.Button();
             this.gradientPanel1 = new Mellow_Music_Player.GradientPanel();
@@ -59,6 +61,7 @@ namespace Mellow_Music_Player
             this.downloadSongInfoButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.musicTrackbar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.toolbarPanel.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -160,6 +163,7 @@ namespace Mellow_Music_Player
             this.songList.SelectedIndexChanged += new System.EventHandler(this.songList_SelectedIndexChanged);
             this.songList.DragDrop += new System.Windows.Forms.DragEventHandler(this.songList_DragDrop);
             this.songList.DragEnter += new System.Windows.Forms.DragEventHandler(this.songList_DragEnter);
+            this.songList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.songList_MouseDown);
             // 
             // musicTrackbar1
             // 
@@ -194,6 +198,19 @@ namespace Mellow_Music_Player
             this.songDurationLabel.Name = "songDurationLabel";
             this.songDurationLabel.Size = new System.Drawing.Size(0, 13);
             this.songDurationLabel.TabIndex = 24;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.favoriteToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(117, 26);
+            // 
+            // favoriteToolStripMenuItem
+            // 
+            this.favoriteToolStripMenuItem.Name = "favoriteToolStripMenuItem";
+            this.favoriteToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.favoriteToolStripMenuItem.Text = "Favorite";
             // 
             // toolbarPanel
             // 
@@ -359,6 +376,7 @@ namespace Mellow_Music_Player
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.musicTrackbar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.toolbarPanel.ResumeLayout(false);
             this.gradientPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -394,6 +412,8 @@ namespace Mellow_Music_Player
         private AxWMPLib.AxWindowsMediaPlayer mediaPlayer;
         private Timer musicTimer;
         private Label songDurationLabel;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem favoriteToolStripMenuItem;
     }
 }
 

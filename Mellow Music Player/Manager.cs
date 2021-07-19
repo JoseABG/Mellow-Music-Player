@@ -337,5 +337,22 @@ namespace Mellow_Music_Player
             }
 
         }
+
+        private void songList_MouseDown(object sender, MouseEventArgs e)
+        {
+
+            int index = songList.IndexFromPoint(e.X, e.Y);
+
+            if(index != ListBox.NoMatches)
+            {
+
+                songList.SelectedIndex = songList.IndexFromPoint(e.X, e.Y);
+
+                contextMenuStrip1.Show(Cursor.Position);
+
+            } 
+
+            
+        }
     }
 }

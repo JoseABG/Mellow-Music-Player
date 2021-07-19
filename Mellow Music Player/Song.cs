@@ -23,7 +23,7 @@ namespace Mellow_Music_Player {
 		public string songFilepath { get; set; }
 		public string songName { get; set; }
 		public int year { get; set; }
-		public TimeSpan duration { get; set; }
+		public bool favorite { get; set; }
 
 		public Song(string songFilepath, string songName){
 
