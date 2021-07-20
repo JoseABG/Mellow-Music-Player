@@ -348,11 +348,53 @@ namespace Mellow_Music_Player
 
                 songList.SelectedIndex = songList.IndexFromPoint(e.X, e.Y);
 
-                contextMenuStrip1.Show(Cursor.Position);
+                if(getCurrentSelectedSong().favorite)
+                {
+
+                    songMenuStrip.Items[0].Text = "Unfavorite";
+
+                } else
+                {
+
+                    songMenuStrip.Items[0].Text = "Favorite";
+
+                }
+
+                songMenuStrip.Show(Cursor.Position);
 
             } 
 
             
+        }
+
+        private void favoriteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Song selectedSong = getCurrentSelectedSong();
+
+            if(selectedSong.favorite)
+            {
+
+                selectedSong.favorite = false;
+                controller.getFavoritesDatabase().removeSong(selectedSong);
+                
+
+            } else
+            {
+
+                selectedSong.favorite = true;
+                controller.getFavoritesDatabase().addSong(selectedSong);
+
+            }
+
+
+        }
+
+        private void favoritesButton_Click(object sender, EventArgs e)
+        {
+
+            //songList.DataSource = controller.getFavoritesDatabase();
+
         }
     }
 }

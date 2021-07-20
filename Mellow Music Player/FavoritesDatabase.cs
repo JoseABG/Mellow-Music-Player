@@ -20,6 +20,8 @@ namespace Mellow_Music_Player {
 
 		public FavoritesDatabase(){
 
+			favorites = new List<Song>();
+
 		}
 
 		~FavoritesDatabase(){
@@ -30,13 +32,18 @@ namespace Mellow_Music_Player {
 		/// <param name="song"></param>
 		public void addSong(Song song){
 
+			favorites.Add(song);
+
 		}
 
 		/// 
 		/// <param name="song"></param>
 		public void removeSong(Song song){
 
+			favorites.Remove(song);
+
 		}
+
 
 		public List<Song> shuffle()
         {
