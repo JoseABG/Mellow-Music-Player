@@ -44,7 +44,7 @@ namespace Mellow_Music_Player
 
         }
 
-        public List<Song> getList()
+        public List<Song> getSongsList()
         {
 
             return songDatabase.getSongs();
@@ -155,9 +155,16 @@ namespace Mellow_Music_Player
 
         }
 
-        public FavoritesDatabase getFavoritesDatabase()
+        public List<Song> getFavoritesList()
         {
 
+
+            return favoritesDatabase.getSongs();
+
+        }
+
+        public FavoritesDatabase getFavoritesDatabase()
+        {
 
             return favoritesDatabase;
 

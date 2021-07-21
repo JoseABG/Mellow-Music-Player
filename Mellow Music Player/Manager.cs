@@ -26,7 +26,7 @@ namespace Mellow_Music_Player
         private void songButton_Click(object sender, EventArgs e)
         {
 
-            Debug.WriteLine("Hello");
+            songList.DataSource = controller.getSongsList();
 
         }
 
@@ -87,7 +87,7 @@ namespace Mellow_Music_Player
                 controller.parseSongFiles(filepaths);
 
                 songList.DataSource = null;
-                songList.DataSource = controller.getList();
+                songList.DataSource = controller.getSongsList();
 
 
 
@@ -343,7 +343,7 @@ namespace Mellow_Music_Player
 
             int index = songList.IndexFromPoint(e.X, e.Y);
 
-            if(index != ListBox.NoMatches)
+            if(index != ListBox.NoMatches && MouseButtons.Right == e.Button)
             {
 
                 songList.SelectedIndex = songList.IndexFromPoint(e.X, e.Y);
@@ -393,7 +393,7 @@ namespace Mellow_Music_Player
         private void favoritesButton_Click(object sender, EventArgs e)
         {
 
-            //songList.DataSource = controller.getFavoritesDatabase();
+            songList.DataSource = controller.getFavoritesList();
 
         }
     }
