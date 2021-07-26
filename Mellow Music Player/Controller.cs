@@ -11,6 +11,7 @@ namespace Mellow_Music_Player
     class Controller
     {
         private SongDatabase songDatabase;
+        private FavoritesDatabase favoritesDatabase;
         private string currentSongDuration;
         private List<Song> shuffledSongList;
         private int currentIndex;
@@ -20,6 +21,7 @@ namespace Mellow_Music_Player
         {
 
             songDatabase = new SongDatabase();
+            favoritesDatabase = new FavoritesDatabase();
 
         }
 
@@ -42,7 +44,7 @@ namespace Mellow_Music_Player
 
         }
 
-        public List<Song> getList()
+        public List<Song> getSongsList()
         {
 
             return songDatabase.getSongs();
@@ -150,6 +152,21 @@ namespace Mellow_Music_Player
 
             }
             
+
+        }
+
+        public List<Song> getFavoritesList()
+        {
+
+
+            return favoritesDatabase.getSongs();
+
+        }
+
+        public FavoritesDatabase getFavoritesDatabase()
+        {
+
+            return favoritesDatabase;
 
         }
 

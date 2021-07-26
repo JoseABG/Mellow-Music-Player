@@ -45,6 +45,13 @@ namespace Mellow_Music_Player {
 
         }
 
+		public List<Song> getSongs()
+        {
+
+			return null;
+
+        }
+
 	}//end RecentlyPlayedDatabase
 
 }//end namespace uml

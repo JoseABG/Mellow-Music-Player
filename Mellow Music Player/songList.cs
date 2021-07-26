@@ -23,6 +23,8 @@ namespace Mellow_Music_Player {
 		/// <param name="song"></param>
 		void removeSong(Song song);
 
+		List<Song> getSongs();
+
 		List<Song> shuffle();
 	}//end songList
 
