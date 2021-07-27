@@ -87,6 +87,7 @@ namespace Mellow_Music_Player
             this.playlistsButton.TabIndex = 1;
             this.playlistsButton.Text = "Playlists";
             this.playlistsButton.UseVisualStyleBackColor = true;
+            this.playlistsButton.Click += new System.EventHandler(this.playlistsButton_Click);
             // 
             // recentlyPlayedButton
             // 

@@ -66,6 +66,12 @@
     </Compile>
     <Compile Include="Playlist.cs" />
     <Compile Include="PlaylistDatabase.cs" />
+    <Compile Include="PlaylistsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlaylistsWindow.Designer.cs">
+      <DependentUpon>PlaylistsWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecentlyPlayedDatabase.cs" />
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manager.resx">
       <DependentUpon>Manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaylistsWindow.resx">
+      <DependentUpon>PlaylistsWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

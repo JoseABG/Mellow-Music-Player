@@ -396,5 +396,16 @@ namespace Mellow_Music_Player
             songList.DataSource = controller.getFavoritesList();
 
         }
+
+        private void playlistsButton_Click(object sender, EventArgs e)
+        {
+
+            PlaylistsWindow playlistsWindow = new PlaylistsWindow();
+            playlistsWindow.StartPosition = FormStartPosition.Manual;
+            playlistsWindow.Left = this.Right;
+            playlistsWindow.Top = this.Top;
+            playlistsWindow.Show();
+
+        }
     }
 }
