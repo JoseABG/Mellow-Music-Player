@@ -12,12 +12,23 @@ namespace Mellow_Music_Player
 {
     public partial class PlaylistsWindow : Form
     {
+
+        private Controller controller;
+
         public PlaylistsWindow()
         {
             InitializeComponent();
             playlistNameTextBox.Enter += new EventHandler(playlistNameTextBox_Enter);
             playlistNameTextBox.Leave += new EventHandler(playlistNameTextBox_Leave);
+            playlistsLists.DataSource = controller.getPlaylistDatabase().getPlaylists();
             defaultPlaylistNameTextBoxText();
+        }
+
+        public void setController(Controller controller)
+        {
+
+            this.controller = controller;
+
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -38,8 +49,12 @@ namespace Mellow_Music_Player
         private void playlistNameTextBox_Enter(object sender, EventArgs e)
         {
 
-            playlistNameTextBox.Text = "";
-            playlistNameTextBox.ForeColor = Color.Black;
+            if(playlistNameTextBox.Text.Equals("Enter new playlist name here"))
+            {
+                playlistNameTextBox.Text = "";
+                playlistNameTextBox.ForeColor = Color.Black;
+            }
+            
 
         }
 
@@ -47,8 +62,25 @@ namespace Mellow_Music_Player
         private void playlistNameTextBox_Leave(object sender, EventArgs e)
         {
 
-            defaultPlaylistNameTextBoxText();
+            if (playlistNameTextBox.Text.Equals(""))
+            {
+
+                defaultPlaylistNameTextBoxText();
+
+            } 
             
+
+        }
+
+        private void addPlaylistButton_Click(object sender, EventArgs e)
+        {
+
+            PlaylistDatabase database = controller.getPlaylistDatabase();
+
+            Playlist playlist = new Playlist();
+            playlist.name = playlistNameTextBox.Text;
+
+            database.addPlaylist(playlist);
 
         }
     }

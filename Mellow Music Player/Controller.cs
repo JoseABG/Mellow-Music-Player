@@ -8,10 +8,11 @@ using System.Diagnostics;
 
 namespace Mellow_Music_Player
 {
-    class Controller
+    public class Controller
     {
         private SongDatabase songDatabase;
         private FavoritesDatabase favoritesDatabase;
+        private PlaylistDatabase playlistDatabase;
         private string currentSongDuration;
         private List<Song> shuffledSongList;
         private int currentIndex;
@@ -22,6 +23,7 @@ namespace Mellow_Music_Player
 
             songDatabase = new SongDatabase();
             favoritesDatabase = new FavoritesDatabase();
+            playlistDatabase = new PlaylistDatabase();
 
         }
 
@@ -170,5 +172,11 @@ namespace Mellow_Music_Player
 
         }
 
+        public PlaylistDatabase getPlaylistDatabase()
+        {
+
+            return playlistDatabase;
+
+        }
     }
 }

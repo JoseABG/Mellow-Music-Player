@@ -16,8 +16,8 @@ using System.IO;
 namespace Mellow_Music_Player {
 	public class Playlist : songList {
 
-		private string name;
-		private List<Song> songs;
+		public string name { get; set; }
+		public List<Song> songs { get; set; }
 
 		public Playlist(){
 

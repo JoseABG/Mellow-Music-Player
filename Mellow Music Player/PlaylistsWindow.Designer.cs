@@ -102,6 +102,7 @@ namespace Mellow_Music_Player
             this.addPlaylistButton.TabIndex = 5;
             this.addPlaylistButton.Text = "Add Playlist";
             this.addPlaylistButton.UseVisualStyleBackColor = true;
+            this.addPlaylistButton.Click += new System.EventHandler(this.addPlaylistButton_Click);
             // 
             // deletePlaylistButton
             // 

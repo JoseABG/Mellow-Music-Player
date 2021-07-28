@@ -30,6 +30,8 @@ namespace Mellow_Music_Player {
 		/// <param name="playlist"></param>
 		public void addPlaylist(Playlist playlist){
 
+			playlists.Add(playlist);
+
 		}
 
 		/// 
@@ -37,6 +39,13 @@ namespace Mellow_Music_Player {
 		public void removePlaylist(Playlist playlist){
 
 		}
+
+		public List<Playlist> getPlaylists()
+        {
+
+			return playlists;
+
+        }
 
 	}//end PlaylistDatabase
 
