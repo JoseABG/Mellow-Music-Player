@@ -37,6 +37,8 @@ namespace Mellow_Music_Player {
 		/// <param name="song"></param>
 		public void removeSong(Song song){
 
+			songs.Remove(song);
+
 		}
 
 		public List<Song> shuffle()
@@ -53,6 +55,11 @@ namespace Mellow_Music_Player {
 
         }
 
-	}//end Playlist
+        public override string ToString()
+        {
+			return name;
+        }
+
+    }//end Playlist
 
 }//end namespace uml

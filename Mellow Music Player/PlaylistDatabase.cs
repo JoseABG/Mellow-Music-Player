@@ -20,6 +20,8 @@ namespace Mellow_Music_Player {
 
 		public PlaylistDatabase(){
 
+			playlists = new List<Playlist>();
+
 		}
 
 		~PlaylistDatabase(){
@@ -37,6 +39,8 @@ namespace Mellow_Music_Player {
 		/// 
 		/// <param name="playlist"></param>
 		public void removePlaylist(Playlist playlist){
+
+			playlists.Remove(playlist);
 
 		}
 

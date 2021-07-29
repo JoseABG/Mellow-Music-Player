@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,14 @@ namespace Mellow_Music_Player
             InitializeComponent();
             playlistNameTextBox.Enter += new EventHandler(playlistNameTextBox_Enter);
             playlistNameTextBox.Leave += new EventHandler(playlistNameTextBox_Leave);
-            playlistsLists.DataSource = controller.getPlaylistDatabase().getPlaylists();
             defaultPlaylistNameTextBoxText();
         }
 
-        public void setController(Controller controller)
+        public void initialize(Controller controller)
         {
 
             this.controller = controller;
+            playlistsLists.DataSource = controller.getPlaylistDatabase().getPlaylists();
 
         }
 
@@ -75,13 +76,39 @@ namespace Mellow_Music_Player
         private void addPlaylistButton_Click(object sender, EventArgs e)
         {
 
-            PlaylistDatabase database = controller.getPlaylistDatabase();
+            String playlistName = playlistNameTextBox.Text;
 
-            Playlist playlist = new Playlist();
-            playlist.name = playlistNameTextBox.Text;
+            if (!playlistName.Equals("Enter new playlist name here"))
+            {
+                PlaylistDatabase database = controller.getPlaylistDatabase();
 
-            database.addPlaylist(playlist);
+                Playlist playlist = new Playlist();
+                playlist.name = playlistNameTextBox.Text;
+
+                database.addPlaylist(playlist);
+
+                playlistsLists.DataSource = null;
+                playlistsLists.DataSource = database.getPlaylists();
+            }
 
         }
+
+        private void deletePlaylistButton_Click(object sender, EventArgs e)
+        {
+
+            if(playlistsLists.SelectedItem != null)
+            {
+
+                controller.getPlaylistDatabase().removePlaylist((Playlist)playlistsLists.SelectedItem);
+
+                playlistsLists.DataSource = null;
+                playlistsLists.DataSource = controller.getPlaylistDatabase().getPlaylists();
+
+                
+            }
+            
+
+        }
+
     }
 }

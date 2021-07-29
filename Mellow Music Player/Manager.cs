@@ -401,7 +401,7 @@ namespace Mellow_Music_Player
         {
 
             PlaylistsWindow playlistsWindow = new PlaylistsWindow();
-            playlistsWindow.setController(controller);
+            playlistsWindow.initialize(controller);
             playlistsWindow.StartPosition = FormStartPosition.Manual;
             playlistsWindow.Left = this.Right;
             playlistsWindow.Top = this.Top;

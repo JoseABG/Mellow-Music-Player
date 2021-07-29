@@ -112,6 +112,7 @@ namespace Mellow_Music_Player
             this.deletePlaylistButton.TabIndex = 6;
             this.deletePlaylistButton.Text = "Delete Selected Playlist";
             this.deletePlaylistButton.UseVisualStyleBackColor = true;
+            this.deletePlaylistButton.Click += new System.EventHandler(this.deletePlaylistButton_Click);
             // 
             // playlistNameTextBox
             // 
