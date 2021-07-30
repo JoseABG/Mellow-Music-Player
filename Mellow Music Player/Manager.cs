@@ -149,7 +149,7 @@ namespace Mellow_Music_Player
             }
         }
 
-        private Song getCurrentSelectedSong()
+        public Song getCurrentSelectedSong()
         {
 
             return (Song)songList.SelectedItem;
@@ -401,7 +401,7 @@ namespace Mellow_Music_Player
         {
 
             PlaylistsWindow playlistsWindow = new PlaylistsWindow();
-            playlistsWindow.initialize(controller);
+            playlistsWindow.initialize(controller, this);
             playlistsWindow.StartPosition = FormStartPosition.Manual;
             playlistsWindow.Left = this.Right;
             playlistsWindow.Top = this.Top;

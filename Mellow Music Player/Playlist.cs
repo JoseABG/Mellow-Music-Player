@@ -17,9 +17,11 @@ namespace Mellow_Music_Player {
 	public class Playlist : songList {
 
 		public string name { get; set; }
-		public List<Song> songs { get; set; }
+		private List<Song> songs;
 
 		public Playlist(){
+
+			songs = new List<Song>();
 
 		}
 
@@ -30,6 +32,8 @@ namespace Mellow_Music_Player {
 		/// 
 		/// <param name="song"></param>
 		public void addSong(Song song){
+
+			songs.Add(song);
 
 		}
 
@@ -51,7 +55,7 @@ namespace Mellow_Music_Player {
 		public List<Song> getSongs()
         {
 
-			return null;
+			return songs;
 
         }
 

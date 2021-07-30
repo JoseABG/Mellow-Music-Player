@@ -29,9 +29,6 @@ namespace Mellow_Music_Player
         /// </summary>
         private void InitializeComponent()
         {
-            this.lyricToolbarPanel = new Mellow_Music_Player.GradientPanel();
-            this.lyricTitleLabel = new System.Windows.Forms.Label();
-            this.closeButton = new System.Windows.Forms.Button();
             this.songPlaylistList = new System.Windows.Forms.ListBox();
             this.playlistsLists = new System.Windows.Forms.ListBox();
             this.addPlaylistButton = new System.Windows.Forms.Button();
@@ -39,44 +36,11 @@ namespace Mellow_Music_Player
             this.playlistNameTextBox = new System.Windows.Forms.TextBox();
             this.addSongToPlaylistButton = new System.Windows.Forms.Button();
             this.deleteSongFromPlaylistButton = new System.Windows.Forms.Button();
+            this.lyricToolbarPanel = new Mellow_Music_Player.GradientPanel();
+            this.lyricTitleLabel = new System.Windows.Forms.Label();
+            this.closeButton = new System.Windows.Forms.Button();
             this.lyricToolbarPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lyricToolbarPanel
-            // 
-            this.lyricToolbarPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lyricToolbarPanel.BottomColor = System.Drawing.Color.SkyBlue;
-            this.lyricToolbarPanel.Controls.Add(this.lyricTitleLabel);
-            this.lyricToolbarPanel.Controls.Add(this.closeButton);
-            this.lyricToolbarPanel.Location = new System.Drawing.Point(0, 0);
-            this.lyricToolbarPanel.Name = "lyricToolbarPanel";
-            this.lyricToolbarPanel.Size = new System.Drawing.Size(600, 29);
-            this.lyricToolbarPanel.TabIndex = 2;
-            this.lyricToolbarPanel.TopColor = System.Drawing.Color.Aqua;
-            // 
-            // lyricTitleLabel
-            // 
-            this.lyricTitleLabel.AutoSize = true;
-            this.lyricTitleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.lyricTitleLabel.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Italic);
-            this.lyricTitleLabel.Location = new System.Drawing.Point(273, 7);
-            this.lyricTitleLabel.Name = "lyricTitleLabel";
-            this.lyricTitleLabel.Size = new System.Drawing.Size(54, 18);
-            this.lyricTitleLabel.TabIndex = 7;
-            this.lyricTitleLabel.Text = "Playlists";
-            // 
-            // closeButton
-            // 
-            this.closeButton.BackColor = System.Drawing.Color.Transparent;
-            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeButton.ForeColor = System.Drawing.Color.White;
-            this.closeButton.Location = new System.Drawing.Point(560, 0);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(38, 29);
-            this.closeButton.TabIndex = 6;
-            this.closeButton.Text = "X";
-            this.closeButton.UseVisualStyleBackColor = false;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // songPlaylistList
             // 
@@ -93,6 +57,7 @@ namespace Mellow_Music_Player
             this.playlistsLists.Name = "playlistsLists";
             this.playlistsLists.Size = new System.Drawing.Size(300, 407);
             this.playlistsLists.TabIndex = 4;
+            this.playlistsLists.SelectedIndexChanged += new System.EventHandler(this.playlistsLists_SelectedIndexChanged);
             // 
             // addPlaylistButton
             // 
@@ -129,6 +94,7 @@ namespace Mellow_Music_Player
             this.addSongToPlaylistButton.TabIndex = 8;
             this.addSongToPlaylistButton.Text = "Add Selected Song";
             this.addSongToPlaylistButton.UseVisualStyleBackColor = true;
+            this.addSongToPlaylistButton.Click += new System.EventHandler(this.addSongToPlaylistButton_Click);
             // 
             // deleteSongFromPlaylistButton
             // 
@@ -138,6 +104,43 @@ namespace Mellow_Music_Player
             this.deleteSongFromPlaylistButton.TabIndex = 9;
             this.deleteSongFromPlaylistButton.Text = "Delete Selected Song";
             this.deleteSongFromPlaylistButton.UseVisualStyleBackColor = true;
+            this.deleteSongFromPlaylistButton.Click += new System.EventHandler(this.deleteSongFromPlaylistButton_Click);
+            // 
+            // lyricToolbarPanel
+            // 
+            this.lyricToolbarPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lyricToolbarPanel.BottomColor = System.Drawing.Color.SkyBlue;
+            this.lyricToolbarPanel.Controls.Add(this.lyricTitleLabel);
+            this.lyricToolbarPanel.Controls.Add(this.closeButton);
+            this.lyricToolbarPanel.Location = new System.Drawing.Point(0, 0);
+            this.lyricToolbarPanel.Name = "lyricToolbarPanel";
+            this.lyricToolbarPanel.Size = new System.Drawing.Size(600, 29);
+            this.lyricToolbarPanel.TabIndex = 2;
+            this.lyricToolbarPanel.TopColor = System.Drawing.Color.Aqua;
+            // 
+            // lyricTitleLabel
+            // 
+            this.lyricTitleLabel.AutoSize = true;
+            this.lyricTitleLabel.BackColor = System.Drawing.Color.Transparent;
+            this.lyricTitleLabel.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Italic);
+            this.lyricTitleLabel.Location = new System.Drawing.Point(273, 7);
+            this.lyricTitleLabel.Name = "lyricTitleLabel";
+            this.lyricTitleLabel.Size = new System.Drawing.Size(54, 18);
+            this.lyricTitleLabel.TabIndex = 7;
+            this.lyricTitleLabel.Text = "Playlists";
+            // 
+            // closeButton
+            // 
+            this.closeButton.BackColor = System.Drawing.Color.Transparent;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.ForeColor = System.Drawing.Color.White;
+            this.closeButton.Location = new System.Drawing.Point(560, 0);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(38, 29);
+            this.closeButton.TabIndex = 6;
+            this.closeButton.Text = "X";
+            this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // PlaylistsWindow
             // 

@@ -15,6 +15,7 @@ namespace Mellow_Music_Player
     {
 
         private Controller controller;
+        private Manager manager;
 
         public PlaylistsWindow()
         {
@@ -24,10 +25,11 @@ namespace Mellow_Music_Player
             defaultPlaylistNameTextBoxText();
         }
 
-        public void initialize(Controller controller)
+        public void initialize(Controller controller, Manager manager)
         {
 
             this.controller = controller;
+            this.manager = manager;
             playlistsLists.DataSource = controller.getPlaylistDatabase().getPlaylists();
 
         }
@@ -110,5 +112,47 @@ namespace Mellow_Music_Player
 
         }
 
+        private void addSongToPlaylistButton_Click(object sender, EventArgs e)
+        {
+
+            Playlist selectedPlaylist = (Playlist)playlistsLists.SelectedItem;
+
+            if(manager.getCurrentSelectedSong() != null && selectedPlaylist != null) 
+            {
+
+                selectedPlaylist.addSong(manager.getCurrentSelectedSong());
+
+                songPlaylistList.DataSource = null;
+                songPlaylistList.DataSource = selectedPlaylist.getSongs();
+
+            }
+
+        }
+
+        private void playlistsLists_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            Playlist selectedPlaylist = (Playlist)playlistsLists.SelectedItem;
+            songPlaylistList.DataSource = null;
+            songPlaylistList.DataSource = selectedPlaylist.getSongs();
+
+        }
+
+        private void deleteSongFromPlaylistButton_Click(object sender, EventArgs e)
+        {
+
+            Playlist selectedPlaylist = (Playlist)playlistsLists.SelectedItem;
+
+            if(selectedPlaylist != null && songPlaylistList.SelectedItem != null)
+            {
+
+                selectedPlaylist.removeSong((Song)songPlaylistList.SelectedItem);
+
+                songPlaylistList.DataSource = null;
+                songPlaylistList.DataSource = selectedPlaylist.getSongs();
+
+            }
+
+        }
     }
 }
