@@ -26,6 +26,19 @@ namespace Mellow_Music_Player
         private void songButton_Click(object sender, EventArgs e)
         {
 
+            if (Application.OpenForms.OfType<PlaylistsWindow>().Any())
+            {
+
+                Debug.WriteLine("Open");
+
+            }
+            else
+            {
+
+                Debug.WriteLine("Closed");
+
+            }
+
             songList.DataSource = controller.getSongsList();
 
         }
@@ -151,6 +164,18 @@ namespace Mellow_Music_Player
 
         public Song getCurrentSelectedSong()
         {
+
+            if(Application.OpenForms.OfType<PlaylistsWindow>().Any())
+            {
+
+
+
+            } else
+            {
+
+
+
+            }
 
             return (Song)songList.SelectedItem;
 

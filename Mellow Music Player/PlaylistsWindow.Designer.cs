@@ -39,6 +39,7 @@ namespace Mellow_Music_Player
             this.lyricToolbarPanel = new Mellow_Music_Player.GradientPanel();
             this.lyricTitleLabel = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.lyricToolbarPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +62,7 @@ namespace Mellow_Music_Player
             // 
             // addPlaylistButton
             // 
-            this.addPlaylistButton.Location = new System.Drawing.Point(202, 49);
+            this.addPlaylistButton.Location = new System.Drawing.Point(202, 38);
             this.addPlaylistButton.Name = "addPlaylistButton";
             this.addPlaylistButton.Size = new System.Drawing.Size(81, 23);
             this.addPlaylistButton.TabIndex = 5;
@@ -71,7 +72,7 @@ namespace Mellow_Music_Player
             // 
             // deletePlaylistButton
             // 
-            this.deletePlaylistButton.Location = new System.Drawing.Point(236, 87);
+            this.deletePlaylistButton.Location = new System.Drawing.Point(236, 70);
             this.deletePlaylistButton.Name = "deletePlaylistButton";
             this.deletePlaylistButton.Size = new System.Drawing.Size(132, 23);
             this.deletePlaylistButton.TabIndex = 6;
@@ -81,14 +82,14 @@ namespace Mellow_Music_Player
             // 
             // playlistNameTextBox
             // 
-            this.playlistNameTextBox.Location = new System.Drawing.Point(289, 49);
+            this.playlistNameTextBox.Location = new System.Drawing.Point(289, 38);
             this.playlistNameTextBox.Name = "playlistNameTextBox";
             this.playlistNameTextBox.Size = new System.Drawing.Size(156, 20);
             this.playlistNameTextBox.TabIndex = 7;
             // 
             // addSongToPlaylistButton
             // 
-            this.addSongToPlaylistButton.Location = new System.Drawing.Point(151, 118);
+            this.addSongToPlaylistButton.Location = new System.Drawing.Point(151, 101);
             this.addSongToPlaylistButton.Name = "addSongToPlaylistButton";
             this.addSongToPlaylistButton.Size = new System.Drawing.Size(132, 23);
             this.addSongToPlaylistButton.TabIndex = 8;
@@ -98,7 +99,7 @@ namespace Mellow_Music_Player
             // 
             // deleteSongFromPlaylistButton
             // 
-            this.deleteSongFromPlaylistButton.Location = new System.Drawing.Point(313, 118);
+            this.deleteSongFromPlaylistButton.Location = new System.Drawing.Point(313, 101);
             this.deleteSongFromPlaylistButton.Name = "deleteSongFromPlaylistButton";
             this.deleteSongFromPlaylistButton.Size = new System.Drawing.Size(132, 23);
             this.deleteSongFromPlaylistButton.TabIndex = 9;
@@ -142,11 +143,21 @@ namespace Mellow_Music_Player
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(216, 133);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(172, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Play Currently Selected Playlist";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // PlaylistsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 571);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.deleteSongFromPlaylistButton);
             this.Controls.Add(this.addSongToPlaylistButton);
             this.Controls.Add(this.playlistNameTextBox);
@@ -177,5 +188,6 @@ namespace Mellow_Music_Player
         private System.Windows.Forms.TextBox playlistNameTextBox;
         private System.Windows.Forms.Button addSongToPlaylistButton;
         private System.Windows.Forms.Button deleteSongFromPlaylistButton;
+        private System.Windows.Forms.Button button1;
     }
 }
