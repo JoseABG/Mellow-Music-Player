@@ -16,7 +16,8 @@ namespace Mellow_Music_Player
     {
         private Point mouseLocation;
         private Controller controller;
-
+        private PlaylistsWindow playlistsWindow;
+        
         public Manager()
         {
             InitializeComponent();
@@ -167,17 +168,20 @@ namespace Mellow_Music_Player
 
             if(Application.OpenForms.OfType<PlaylistsWindow>().Any())
             {
-
+                if(playlistsWindow.getCurrentSelectedPlaylist() != null)
+                {
+                    songList.DataSource = playlistsWindow.getCurrentSelectedPlaylist().getSongs();
+                }
+                
+                return playlistsWindow.getCurrentSelectedPlaylistSong();
 
 
             } else
             {
 
-
+                return (Song)songList.SelectedItem;
 
             }
-
-            return (Song)songList.SelectedItem;
 
         }
 
@@ -425,7 +429,7 @@ namespace Mellow_Music_Player
         private void playlistsButton_Click(object sender, EventArgs e)
         {
 
-            PlaylistsWindow playlistsWindow = new PlaylistsWindow();
+            playlistsWindow = new PlaylistsWindow();
             playlistsWindow.initialize(controller, this);
             playlistsWindow.StartPosition = FormStartPosition.Manual;
             playlistsWindow.Left = this.Right;

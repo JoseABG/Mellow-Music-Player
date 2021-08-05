@@ -61,7 +61,6 @@ namespace Mellow_Music_Player
 
         }
 
-
         private void playlistNameTextBox_Leave(object sender, EventArgs e)
         {
 
@@ -101,7 +100,7 @@ namespace Mellow_Music_Player
             if(playlistsLists.SelectedItem != null)
             {
 
-                controller.getPlaylistDatabase().removePlaylist((Playlist)playlistsLists.SelectedItem);
+                controller.getPlaylistDatabase().removePlaylist(getCurrentSelectedPlaylist());
 
                 playlistsLists.DataSource = null;
                 playlistsLists.DataSource = controller.getPlaylistDatabase().getPlaylists();
@@ -115,7 +114,7 @@ namespace Mellow_Music_Player
         private void addSongToPlaylistButton_Click(object sender, EventArgs e)
         {
 
-            Playlist selectedPlaylist = (Playlist)playlistsLists.SelectedItem;
+            Playlist selectedPlaylist = getCurrentSelectedPlaylist();
 
             if(manager.getCurrentSelectedSong() != null && selectedPlaylist != null) 
             {
@@ -132,7 +131,7 @@ namespace Mellow_Music_Player
         private void playlistsLists_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            Playlist selectedPlaylist = (Playlist)playlistsLists.SelectedItem;
+            Playlist selectedPlaylist = getCurrentSelectedPlaylist();
             songPlaylistList.DataSource = null;
             songPlaylistList.DataSource = selectedPlaylist.getSongs();
 
@@ -141,17 +140,31 @@ namespace Mellow_Music_Player
         private void deleteSongFromPlaylistButton_Click(object sender, EventArgs e)
         {
 
-            Playlist selectedPlaylist = (Playlist)playlistsLists.SelectedItem;
+            Playlist selectedPlaylist = getCurrentSelectedPlaylist();
 
-            if(selectedPlaylist != null && songPlaylistList.SelectedItem != null)
+            if(selectedPlaylist != null && getCurrentSelectedPlaylistSong() != null)
             {
 
-                selectedPlaylist.removeSong((Song)songPlaylistList.SelectedItem);
+                selectedPlaylist.removeSong(getCurrentSelectedPlaylistSong());
 
                 songPlaylistList.DataSource = null;
                 songPlaylistList.DataSource = selectedPlaylist.getSongs();
 
             }
+
+        }
+
+        public Song getCurrentSelectedPlaylistSong()
+        {
+
+            return (Song)songPlaylistList.SelectedItem;
+
+        }
+
+        public Playlist getCurrentSelectedPlaylist()
+        {
+
+            return (Playlist)playlistsLists.SelectedItem;
 
         }
     }
